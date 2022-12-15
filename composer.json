@@ -1,0 +1,51 @@
+{
+  "name": "based/momentum-lock",
+  "description": "",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Boris Lepikhin",
+      "email": "boris@lepikhin.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Momentum\\Lock\\": "src/",
+      "Momentum\\Lock\\Tests\\": "tests/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Momentum\\Lock\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^8.1",
+    "illuminate/support": "^9.0",
+    "illuminate/auth": "^9.19",
+    "spatie/laravel-data": "^2.1",
+    "spatie/laravel-typescript-transformer": "^2.1"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^6.9|^7.0",
+    "nunomaduro/larastan": "^1.0|^2.0",
+    "pestphp/pest": "^1.2",
+    "pestphp/pest-plugin-laravel": "^1.0",
+    "laravel/pint": "^0.1.3"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Momentum\\Lock\\LockServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
