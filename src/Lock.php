@@ -15,9 +15,7 @@ class Lock
 {
     public static function getPermissions(mixed $model, ?array $abilities = null): array
     {
-        if (! $abilities) {
-            $abilities = static::getAbilitiesFromPolicy($model);
-        }
+        $abilities ??= static::getAbilitiesFromPolicy($model);
 
         return collect($abilities)
             ->mapWithKeys(fn ($ability) => [$ability => Gate::allows($ability, $model)])
@@ -40,7 +38,7 @@ class Lock
             ->toArray();
     }
 
-    protected static function getAbilitiesFromPolicy(Model $model): array
+    public static function getAbilitiesFromPolicy(Model $model): array
     {
         $policy = Gate::getPolicyFor($model);
 

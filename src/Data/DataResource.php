@@ -11,10 +11,13 @@ use Spatie\LaravelData\Support\Wrapping\WrapExecutionType;
 
 class DataResource extends Data
 {
+    /** @var null|Model */
     protected ?Model $model;
 
-    /** @var array|null */
+    /** @var null|array */
     protected $permissions = null;
+
+    protected string $modelClass;
 
     public static function from(mixed ...$payloads): static
     {
