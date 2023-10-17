@@ -13,6 +13,7 @@ The package is only intended to work with [Laravel Data](https://github.com/spat
 
 ## Installation
 
+
 ### Laravel
 
 Install the package into your Laravel app.
