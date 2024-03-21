@@ -45,6 +45,7 @@ class Lock
         $reflection = new ReflectionClass($policy);
 
         return collect($reflection->getMethods(ReflectionMethod::IS_PUBLIC))
+            ->filter(fn (ReflectionMethod $method) => !in_array($method->getName(), config('lock.ignore_abilities', [])))
             ->map(fn (ReflectionMethod $method) => $method->getName())
             ->toArray();
     }
