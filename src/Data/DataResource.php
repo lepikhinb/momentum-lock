@@ -7,11 +7,11 @@ namespace Momentum\Lock\Data;
 use Illuminate\Database\Eloquent\Model;
 use Momentum\Lock\Lock;
 use Spatie\LaravelData\Data;
-use Spatie\LaravelData\Support\Wrapping\WrapExecutionType;
+use Spatie\LaravelData\Support\Transformation\TransformationContext;
+use Spatie\LaravelData\Support\Transformation\TransformationContextFactory;
 
 class DataResource extends Data
 {
-    /** @var null|Model */
     protected ?Model $model;
 
     /** @var null|array */
@@ -48,12 +48,10 @@ class DataResource extends Data
     }
 
     public function transform(
-        bool $transformValues = true,
-        WrapExecutionType $wrapExecutionType = WrapExecutionType::Disabled,
-        bool $mapPropertyNames = true,
+        null|TransformationContextFactory|TransformationContext $transformationContext = null,
     ): array {
         $this->appendPermissions();
 
-        return parent::transform($transformValues, $wrapExecutionType, $mapPropertyNames);
+        return parent::transform($transformationContext);
     }
 }
